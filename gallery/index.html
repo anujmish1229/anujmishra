@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anuj Mishra - Gallery</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <style>
+    /* Gallery specific styles */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .grid img:hover {
+      transform: scale(1.05);
+      z-index: 2;
+    }
+
+    #modalOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    #modalOverlay.active {
+      display: flex;
+    }
+
+    #modalContent {
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
+      overflow: none;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modalContent img {
+      max-width: 100vw;
+      max-height: 100vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: 8px;
+    }
+
+    #modalClose {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 2px 10px;
+      border-radius: 4px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html">Anuj Mishra / amishr1229</a>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/index.html">About Me</a></li>
+        <li><a href="index.html">Some Pictures</a></li>
+        <li><a href="../projects/index.html">Tinkering</a></li>
+        <li><a href="../substack/index.html" target="_blank">Blog</a></li>
+        <li><a href="../cv/index.html">CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <br>
+
+  <div class="grid">
+    <!-- Replace below with your actual image filenames -->
+    <img src="../pics/20240713_163634.jpg" alt="" />
+    <img src="../pics/20240713_163857.jpg" alt="" />
+    <img src="../pics/20240713_165318.jpg" alt="" />
+    <img src="../pics/20240713_165639.jpg" alt="" />
+    <img src="../pics/20240713_165653.jpg" alt="" />
+    <img src="../pics/20240713_171726.jpg" alt="" />
+    <img src="../pics/20240713_171738.jpg" alt="" />
+    <img src="../pics/20240713_171821.jpg" alt="" />
+    <img src="../pics/20240713_201649.jpg" alt="" />
+    <img src="../pics/20240713_205027(0).jpg" alt="" />
+    <img src="../pics/20240717_200123.jpg" alt="" />
+    <img src="../pics/20240803_204600.jpg" alt="" />
+    <img src="../pics/20240803_204641.jpg" alt="" />
+    <img src="../pics/20240831_161933.jpg" alt="" />
+    <img src="../pics/20240831_162020.jpg" alt="" />
+    <img src="../pics/20240831_162336.jpg" alt="" />
+    <img src="../pics/20240831_162653.jpg" alt="" />
+    <img src="../pics/20240831_162735.jpg" alt="" />
+    <img src="../pics/20240831_162919.jpg" alt="" />
+    <img src="../pics/20240831_163014.jpg" alt="" />
+    <img src="../pics/20240831_164644.jpg" alt="" />
+    <img src="../pics/20240831_164727.jpg" alt="" />
+    <img src="../pics/20250308_095157.jpg" alt="" />
+    <img src="../pics/20250308_100504.jpg" alt="" />
+    <img src="../pics/20250308_102738.jpg" alt="" />
+    <img src="../pics/20250308_154344.jpg" alt="" />
+    <img src="../pics/20250308_154355.jpg" alt="" />
+    <img src="../pics/20250308_154838.jpg" alt="" />
+    <img src="../pics/20250308_164415.jpg" alt="" />
+    <img src="../pics/20250308_180513.jpg" alt="" />
+    <img src="../pics/20250310_131923.jpg" alt="" />
+    <img src="../pics/20250310_131927.jpg" alt="" />
+    <img src="../pics/20250310_132004.jpg" alt="" />
+    <img src="../pics/20250310_132204.jpg" alt="" />
+    <img src="../pics/20250310_132215.jpg" alt="" />
+    <img src="../pics/20250310_132340.jpg" alt="" />
+    <img src="../pics/20250310_132624.jpg" alt="" />
+    <img src="../pics/20250310_132921.jpg" alt="" />
+    <img src="../pics/20250310_134729(0).jpg" alt="" />
+    <img src="../pics/20250310_142943.jpg" alt="" />
+    <img src="../pics/20250310_145032.jpg" alt="" />
+    <img src="../pics/20250310_145228.jpg" alt="" />
+    <img src="../pics/20250311_101617.jpg" alt="" />
+    <img src="../pics/20250311_112145.jpg" alt="" />
+    <img src="../pics/20250311_115814.jpg" alt="" />
+    <img src="../pics/20250312_184449.jpg" alt="" />
+    <img src="../pics/20250314_142514.jpg" alt="" />
+    <img src="../pics/20250314_142535.jpg" alt="" />
+    <img src="../pics/20250314_145047.jpg" alt="" />
+    <img src="../pics/20250314_152442.jpg" alt="" />
+    <img src="../pics/20250314_152503.jpg" alt="" />
+    <img src="../pics/20250314_152545.jpg" alt="" />
+    <img src="../pics/20250314_180515.jpg" alt="" />
+    <img src="../pics/20250314_180904.jpg" alt="" />
+    <img src="../pics/20250502_202403.jpg" alt="" />
+    <img src="../pics/20250519_121142.jpg" alt="" />
+    <img src="../pics/20250623_165810.jpg" alt="" />
+    <img src="../pics/20250717_211415.jpg" alt="" />
+    <img src="../pics/20250725_055422.jpg" alt="" />
+    <img src="../pics/20250802_193207.jpg" alt="" />
+    <img src="../pics/20250803_110446.jpg" alt="" />
+  </div>
+
+  <div id="modalOverlay">
+    <div id="modalContent">
+      <button id="modalClose">&times;</button>
+      <img src="" alt="Full Image" id="modalImage" />
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Anuj Mishra. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="mailto:amishr1229@gmail.com">Email</a></li>
+        <li><a href="https://github.com/amishr1229" target="_blank">GitHub</a></li>
+        <li><a href="../cv/index.html">CV</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+
+    document.querySelectorAll('.grid img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImage.src = img.src;
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modalOverlay.classList.remove('active');
+      modalImage.src = '';
+      document.body.style.overflow = '';
+    });
+
+    modalOverlay.addEventListener('click', e => {
+      if (e.target === modalOverlay) {
+        modalClose.click();
+      }
+    });
+  </script>
+</body>
+</html>

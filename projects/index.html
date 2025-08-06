@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Projects</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1f1f1f;
+      color: white;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    .card {
+      background-color: #2c2c2c;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+    .card-content {
+      padding: 1.5rem;
+    }
+    .card-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 0.75rem;
+    }
+    .card-tech {
+      font-size: 1rem;
+      color: #ccc;
+      margin-top: 0.75rem;
+    }
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #2c2c2c;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+    }
+    .modal iframe {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 1rem;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html">Anuj Mishra / amishr1229</a>
+    <nav class="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/index.html">About Me</a></li>
+        <li><a href="../gallery/index.html">Some Pictures</a></li>
+        <li><a href="index.html">Tinkering</a></li>
+        <li><a href="../substack/index.html" target="_blank">Blog</a></li>
+        <li><a href="../cv/index.html">CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="card" onclick="openModal('exo')">
+      <iframe src="https://exodynamics.github.io"></iframe>
+      <div class="card-content">
+        <div class="card-title">ExoDynamics Website</div>
+        <div>A visually appealing and responsive site built during NASA Space Apps 2024 for the "Find a Team" challenge.</div>
+        <div class="card-tech">HTML, CSS, JavaScript, GitHub Pages, Three.js</div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openModal('senior')">
+      <iframe src="https://seniorbuddies.co"></iframe>
+      <div class="card-content">
+        <div class="card-title">Senior Buddies Website</div>
+        <div>Platform connecting seniors with youth volunteers in the Durham area. Responsive, multilingual, and user-friendly.</div>
+        <div class="card-tech">HTML, CSS, JavaScript, PHP, Firebase, Netlify</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="exo-modal">
+    <div class="close-btn" onclick="closeModal()">&times;</div>
+    <div class="modal-content">
+      <h2>ExoDynamics Project</h2>
+      <p>ExoDynamics is a project built for the NASA Space Apps 2024 hackathon under the "Find a Team" challenge. The project aims to enhance astronaut motion tracking using exoskeletal sensor systems and visualizes posture data in 3D. It integrates real-time WebSocket-based motion tracking with a Three.js interface for posture feedback.</p>
+      <p>This website was developed as a public-facing page for the project and includes aesthetic design, responsiveness, and fast load times. Team members include Kirishh Mayooran and Umar Kotapali. The project placed third at the Oshawa local judging round.</p>
+      <p><a href="https://github.com/ExoDynamics/ExoDynamics.github.io" target="_blank" style="color: #97e6f9;">View GitHub Repository</a></p>
+      <iframe src="https://exodynamics.github.io"></iframe>
+      <iframe src="https://exodynamics.github.io/about.html"></iframe>
+    </div>
+  </div>
+
+  <div class="modal" id="senior-modal">
+    <div class="close-btn" onclick="closeModal()">&times;</div>
+    <div class="modal-content">
+      <h2>Senior Buddies Website</h2>
+      <p>Senior Buddies is a local non-profit organization based in Durham Region that connects youth with senior citizens through volunteerism. The website provides resources for signups, event information, and language accessibility for diverse communities. Built with clean UI principles, Firebase backend, and responsive components.</p>
+      <p>The platform is deployed via Netlify and continues to evolve with new functionality. It is fully mobile-optimized and accessible.</p>
+      <p><a href="https://seniorbuddies.co" target="_blank" style="color: #97e6f9;">Visit Website</a></p>
+      <iframe src="https://seniorbuddies.co"></iframe>
+      <iframe src="https://seniorbuddies.co/about"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function openModal(project) {
+      document.getElementById(`${project}-modal`).style.display = 'flex';
+    }
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+    }
+  </script>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Anuj Mishra. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="mailto:amishr1229@gmail.com">Email</a></li>
+        <li><a href="https://github.com/amishr1229" target="_blank">GitHub</a></li>
+        <li><a href="../cv/index.html">CV</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
