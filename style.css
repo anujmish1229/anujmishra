@@ -1,0 +1,34 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 90vh;
+    padding: 0 5vw;
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
+
+.hero-text {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Georgia', serif;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    font-family: 'Georgia', serif;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    margin-left: 4px;
+}
