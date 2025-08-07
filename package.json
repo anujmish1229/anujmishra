@@ -5,6 +5,6 @@
   "main": "get-gallery.js",
   "type": "module",
   "dependencies": {
-    "pg": "^8.11.0"
+    "pg": "^8.16.3"
   }
 }

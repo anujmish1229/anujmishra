@@ -8,7 +8,7 @@ exports.handler = async function (event, context) {
 
   try {
     await client.connect();
-    const result = await client.query('SELECT path FROM images ORDER BY id');
+    const result = await client.query('SELECT url FROM images ORDER BY id');
     await client.end();
     return {
       statusCode: 200,
