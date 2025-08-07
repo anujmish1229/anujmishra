@@ -10,7 +10,7 @@ export default async (req, res) => {
 
   try {
     await client.connect()
-    const result = await client.query('SELECT path FROM gallery ORDER BY id')
+    const result = await client.query('SELECT path FROM images ORDER BY id')
     await client.end()
 
     return res.status(200).json(result.rows)
