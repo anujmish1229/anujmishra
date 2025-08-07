@@ -2,7 +2,7 @@ import { Client } from 'pg'
 
 export default async (req, res) => {
   const client = new Client({
-    connectionString: process.env.NETLIFY_DATABASE_URL, // Store this in Netlify environment variables
+    connectionString: process.env.NETLIFY_DATABASE_URL, 
     ssl: {
       rejectUnauthorized: false,
     },
