@@ -105,15 +105,13 @@ header > a:hover {
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  font-family: 'Georgia', serif;
 }
 
 .hero h2 {
-  font-size: 2rem;
-  font-family: 'Georgia', serif;
+  font-size: 3rem;
   font-weight: 400;
   white-space: nowrap;
   overflow: hidden;
