@@ -1,18 +1,26 @@
-import { Client } from 'pg'
+import pkg from 'pg';
+const { Client } = pkg;
 
-export default async (req, res) => {
+export async function handler(event, context) {
   const client = new Client({
     connectionString: process.env.NETLIFY_DATABASE_URL,
-    ssl: { rejectUnauthorized: false },
-  })
+    ssl: { rejectUnauthorized: false }
+  });
 
   try {
-    await client.connect()
-    const result = await client.query('SELECT path FROM images ORDER BY id')
-    res.status(200).json(result.rows)
-  } catch (err) {
-    res.status(500).json({ error: err.message })
-  } finally {
-    await client.end()
+    await client.connect();
+    const result = await client.query('SELECT path FROM images ORDER BY id');
+    await client.end();
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(result.rows),
+      headers: { "Content-Type": "application/json" }
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message })
+    };
   }
 }

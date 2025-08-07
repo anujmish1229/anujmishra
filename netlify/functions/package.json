@@ -1,7 +1,10 @@
 {
-  "name": "functions",
+  "name": "netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify functions dependencies",
+  "main": "get-gallery.js",
   "type": "module",
   "dependencies": {
-    "pg": "^8.11.1"
+    "pg": "^8.11.0"
   }
 }
