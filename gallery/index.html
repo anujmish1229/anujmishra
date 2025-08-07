@@ -24,6 +24,7 @@
       border-radius: 8px;
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
     .gallery-item img:hover {
@@ -35,18 +36,82 @@
       font-size: 1.2rem;
       color: #555;
     }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      margin: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header class="header">
+    <nav>
+      <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/substack">Blog</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Gallery -->
   <main class="gallery-container">
     <h1>Gallery</h1>
     <div id="loading" class="loading">Loading images...</div>
     <div id="gallery" class="gallery-grid"></div>
   </main>
 
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <span id="closeModal" class="modal-close">&times;</span>
+    <img id="modalImage" class="modal-content" src="" alt="">
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Anuj Mishra. All rights reserved.</p>
+  </footer>
+
+  <!-- Script -->
   <script>
     const galleryDiv = document.getElementById('gallery');
     const loadingDiv = document.getElementById('loading');
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modalImage');
+    const closeModal = document.getElementById('closeModal');
 
     async function loadGallery() {
       try {
@@ -66,6 +131,11 @@
           image.src = img.path;
           image.alt = '';
 
+          image.addEventListener('click', () => {
+            modalImage.src = img.path;
+            modal.style.display = 'flex';
+          });
+
           div.appendChild(image);
           galleryDiv.appendChild(div);
         });
@@ -76,6 +146,18 @@
         console.error(err);
       }
     }
+
+    // Modal close
+    closeModal.onclick = () => {
+      modal.style.display = 'none';
+    };
+
+    // Close modal when clicking outside the image
+    window.onclick = (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
 
     loadGallery();
   </script>
