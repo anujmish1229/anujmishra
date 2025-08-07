@@ -1,5 +1,5 @@
 const line1 = "Hi. I'm Anuj.";
-const line2 = "I'm a student and I like making stuff.";
+const line2 = "I like computers.";
 
 const typedLine1 = document.getElementById("typed-line1");
 const typedLine2 = document.getElementById("typed-line2");
