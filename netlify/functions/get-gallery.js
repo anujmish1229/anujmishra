@@ -1,7 +1,6 @@
-import pkg from 'pg';
-const { Client } = pkg;
+const { Client } = require('pg');
 
-export async function handler(event, context) {
+exports.handler = async function (event, context) {
   const client = new Client({
     connectionString: process.env.NETLIFY_DATABASE_URL,
     ssl: { rejectUnauthorized: false }
@@ -11,16 +10,14 @@ export async function handler(event, context) {
     await client.connect();
     const result = await client.query('SELECT path FROM images ORDER BY id');
     await client.end();
-
     return {
       statusCode: 200,
-      body: JSON.stringify(result.rows),
-      headers: { "Content-Type": "application/json" }
+      body: JSON.stringify(result.rows)
     };
-  } catch (error) {
+  } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message })
+      body: JSON.stringify({ error: err.message })
     };
   }
-}
+};
